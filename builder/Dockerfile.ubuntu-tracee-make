@@ -2,7 +2,7 @@
 # Creates a local docker building environment (ubuntu).
 #
 
-FROM ubuntu:24.04@sha256:353675e2a41babd526e2b837d7ec780c2a05bca0164f7ea5dbbd433d21d166fc
+FROM ubuntu:jammy@sha256:eb29ed27b0821dca09c2e28b39135e185fc1302036427d5f4d70a41ce8fd7659
 
 ARG uid=1000
 ARG gid=1000
@@ -14,6 +14,16 @@ ARG gid=1000
 ARG GO_VERSION=1.24.9
 
 # install needed environment
+
+COPY builder/apt.llvm.org.asc /usr/share/keyrings/
+
+COPY <<EOF /etc/apt/sources.list.d/llvm.sources
+Types: deb
+URIs: http://apt.llvm.org/jammy/
+Suites: llvm-toolchain-jammy-19
+Components: main
+Signed-By: /usr/share/keyrings/apt.llvm.org.asc
+EOF
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
