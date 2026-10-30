@@ -1,11 +1,12 @@
-# Fly.io owners first; upstream entries below are kept for reference.
+# Fly.io owners. Upstream entries below are commented out: CODEOWNERS is
+# last-match-wins and they would otherwise override this line.
 * @superfly/security-team
 
 # Default: tracee-reviewers must approve all changes
-* @aquasecurity/tracee-reviewers
+# * @aquasecurity/tracee-reviewers
 
 # All GitHub config: workflows, actions, CODEOWNERS, dependabot, issue/PR templates, etc.
-/.github/ @aquasecurity/tracee-reviewers @aquasecurity/tracee-security
+# /.github/ @aquasecurity/tracee-reviewers @aquasecurity/tracee-security
 
 # Git hooks
-/.githooks/ @aquasecurity/tracee-reviewers @aquasecurity/tracee-security
+# /.githooks/ @aquasecurity/tracee-reviewers @aquasecurity/tracee-security
